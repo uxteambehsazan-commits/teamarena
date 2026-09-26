@@ -39,9 +39,9 @@ jobs:
       - name: Build
         run: pnpm build
         env:
-          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
           FIGMA_PUBLIC_URL: /teamarena/
+          VITE_SUPABASE_URL: https://yfhvkmwjqpkxvqpswyeg.supabase.co
+          VITE_SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlmaHZrbXdqcXBreHZxcHN3eWVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkyODEwOTIsImV4cCI6MjEwNDg1NzA5Mn0.QBytFCNdlUywzTRuyJ-p_q_RR1rpV8qoqeVPAHfaex8
 
       - uses: actions/configure-pages@v4
 
