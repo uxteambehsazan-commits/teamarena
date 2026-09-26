@@ -15,9 +15,7 @@ export default defineConfig(({ mode }) => {
   const emitSourcemaps = mode === 'development'
 
   return {
-    base: process.env.FIGMA_PUBLIC_URL
-      ? `${process.env.FIGMA_PUBLIC_URL}/`
-      : process.env.VITE_BASE ?? '/',
+    base: process.env.FIGMA_PUBLIC_URL ?? process.env.VITE_BASE ?? '/',
     build: {
       sourcemap: emitSourcemaps ? 'inline' : false,
       minify: !emitSourcemaps,
@@ -42,7 +40,7 @@ export default defineConfig(({ mode }) => {
       host: process.env.FIGMA_DEV_SERVER_HOST || '0.0.0.0',
       port: parseInt(process.env.PORT || '8443'),
       strictPort: true,
-      hmr: process.env.FIGMA_PUBLIC_URL
+      hmr: process.env.FIGMA_PUBLIC_URL?.startsWith('http')
         ? {
             protocol: 'wss',
             host: new URL(process.env.FIGMA_PUBLIC_URL).host,
